@@ -1,0 +1,10 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+cr:
+  title: Code rails
+  body: This is how I learned web development!
+
+http:
+  title: Intro to HTTP
+  body: It's all about the request-response cycle!
