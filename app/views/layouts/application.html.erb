@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Portfolio | Brian Ray</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+      <div class="row">
+        <div class="small-12 medium-4 large-6 columns namelogo">
+          <h1>Brian Ray</B></h1>
+        </div>
+        <div class="small-12 medium-8 large-6 columns">
+          <div class="nav-bar">
+            <ul class="button-group">
+            <li><a href="#" class="button">About</a></li>
+            <li><a href="#" class="button">Work</a></li>
+            <li><a href="#" class="button">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    <div class="md-12 columns"
+      <%= yield %>
+    </div>
+  </body>
 </html>

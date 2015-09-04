@@ -13,12 +13,12 @@
 
   <tbody>
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr class="row radius">
+        <td class="small-9 columns"><%= article.title %></td>
+        <td class="small-9 columns"><%= article.body %></td>
+        <td class="small-1 columns"><%= link_to 'Show', article, class: "button radius" %></td>
+        <td class="small-1 columns"><%= link_to 'Edit', edit_article_path(article), class: "button radius" %></td>
+        <td class="small-1 columns"><%= link_to 'Destroy', article, class: "button radius", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
