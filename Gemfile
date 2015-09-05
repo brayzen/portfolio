@@ -17,7 +17,7 @@ gem 'rails_12factor'
 # gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
-  # gem 'sqlite3'
+
   gem 'byebug'
   gem 'minitest-rails-capybara'
   gem "launchy"
