@@ -10,14 +10,16 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'foundation-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'pg'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
-  gem 'sqlite3'
+  # gem 'sqlite3'
   gem 'byebug'
   gem 'minitest-rails-capybara'
+  gem "launchy"
 end
 
 group :development do
