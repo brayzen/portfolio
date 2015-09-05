@@ -12847,3 +12847,7 @@ ActionController::RoutingError (No route matches [GET] "/js/foundation/foundatio
 
 
 Started GET "/assets/bannerbg-46918e0eb2c7908af8612da4246f00818107a4eea299ec79c6c81007facaa93a.jpg" for ::1 at 2015-09-04 19:17:38 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
