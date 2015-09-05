@@ -8,7 +8,7 @@ feature "Editing an Article" do
     fill_in 'Body', with: "2nd ammendment, went well no?"
     click_on "Update Article"
     page.must_have_content "Article was successfully updated"
-    #page.must_include "2nd ammendment"
+    # page.must_include "2nd ammendment"
     page.wont_have_content "Goobye All!"
   end
 end
