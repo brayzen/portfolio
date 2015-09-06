@@ -3,7 +3,7 @@ require "test_helper"
 feature "CanAccessHome" do
   scenario "the test is sound" do
     visit root_path
-    page.must_have_content "You're looking for a developer"
+    page.must_have_content "I believe the world will be a much better place"
     page.wont_have_content "Goobye All!"
   end
 end

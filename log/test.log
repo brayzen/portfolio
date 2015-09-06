@@ -11073,3 +11073,798 @@ Processing by ArticlesController#show as HTML
   Rendered layouts/_header.html.erb (0.0ms)
 Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms)
   [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "articles"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at", "id") VALUES ('Code rails', 'This is how I learned web development!', '2015-09-06 00:06:04', '2015-09-06 00:06:04', 822229645)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "id") VALUES ('Intro to HTTP', 'It''s all about the request-response cycle!', '2015-09-06 00:06:04', '2015-09-06 00:06:04', 393743796)[0m
+  [1m[35m (7.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------------------------
+Creating an Article Feature Test: test_0001_submit form data to create a new article
+------------------------------------------------------------------------------------
+Started GET "/articles/new" for 127.0.0.1 at 2015-09-05 17:06:04 -0700
+Processing by ArticlesController#new as HTML
+  Rendered articles/_form.html.erb (98.7ms)
+  Rendered articles/new.html.erb within layouts/application (106.3ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2812ms (Views: 2781.3ms | ActiveRecord: 0.0ms)
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 822229645]]
+Started POST "/articles" for 127.0.0.1 at 2015-09-05 17:06:07 -0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "article"=>{"title"=>"Code rails", "body"=>"This is how I learned web development!"}, "commit"=>"Create Article"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Code rails"], ["body", "This is how I learned web development!"], ["created_at", "2015-09-06 00:06:07.046269"], ["updated_at", "2015-09-06 00:06:07.046269"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/articles/980190963
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:06:07 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------------------------
+Deleting an Article Feature Test: test_0001_article is deleted with a click
+---------------------------------------------------------------------------
+Started GET "/articles" for 127.0.0.1 at 2015-09-05 17:06:07 -0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.2ms)
+Started DELETE "/articles/393743796" for 127.0.0.1 at 2015-09-05 17:06:07 -0700
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"393743796"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 393743796]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "articles" WHERE "articles"."id" = ?  [["id", 393743796]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/articles
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+Started GET "/articles" for 127.0.0.1 at 2015-09-05 17:06:07 -0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.1ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------
+CanAccessHome Feature Test: test_0001_the test is sound
+-------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-05 17:06:07 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------
+Welcome test Feature Test: test_0001_should visit the welcome index page
+------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-05 17:06:07 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------
+ArticleTest: test_valid
+-----------------------
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------------------------------
+Visiting the Article Index Feature Test: test_0001_existing articles, show list
+-------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Becoming a Code Fellow"], ["body", "Means striving for excellence."], ["created_at", "2015-09-06 00:06:07.132446"], ["updated_at", "2015-09-06 00:06:07.132446"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/articles" for 127.0.0.1 at 2015-09-05 17:06:07 -0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.1ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+Attached ZURB styles Feature Test: test_0001_Zurb css selectors will be verified
+--------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-05 17:06:07 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+Editing an Article Feature Test: test_0001_Submit updates to an existing article
+--------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Becoming a Code Fellow"], ["body", "Means striving for excellence."], ["created_at", "2015-09-06 00:06:07.160123"], ["updated_at", "2015-09-06 00:06:07.160123"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:06:07 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms)
+Started GET "/articles/980190963/edit" for 127.0.0.1 at 2015-09-05 17:06:07 -0700
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  Rendered articles/_form.html.erb (3.7ms)
+  Rendered articles/edit.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.2ms)
+Started PATCH "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:06:07 -0700
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "article"=>{"title"=>"Becoming a Code Fellow", "body"=>"2nd ammendment, went well no?"}, "commit"=>"Update Article", "id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "articles" SET "body" = ?, "updated_at" = ? WHERE "articles"."id" = ?  [["body", "2nd ammendment, went well no?"], ["updated_at", "2015-09-06 00:06:07.187828"], ["id", 980190963]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/articles/980190963
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:06:07 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "articles"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at", "id") VALUES ('Code rails', 'This is how I learned web development!', '2015-09-06 00:09:43', '2015-09-06 00:09:43', 822229645)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "id") VALUES ('Intro to HTTP', 'It''s all about the request-response cycle!', '2015-09-06 00:09:43', '2015-09-06 00:09:43', 393743796)[0m
+  [1m[35m (48.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+CanAccessHome Feature Test: test_0001_the test is sound
+-------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-05 17:09:43 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 212ms (Views: 202.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+Attached ZURB styles Feature Test: test_0001_Zurb css selectors will be verified
+--------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-05 17:09:43 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------
+Visiting the Article Index Feature Test: test_0001_existing articles, show list
+-------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Becoming a Code Fellow"], ["body", "Means striving for excellence."], ["created_at", "2015-09-06 00:09:43.870452"], ["updated_at", "2015-09-06 00:09:43.870452"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/articles" for 127.0.0.1 at 2015-09-05 17:09:43 -0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.9ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------------
+Welcome test Feature Test: test_0001_should visit the welcome index page
+------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-05 17:09:43 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------------------------
+Deleting an Article Feature Test: test_0001_article is deleted with a click
+---------------------------------------------------------------------------
+Started GET "/articles" for 127.0.0.1 at 2015-09-05 17:09:43 -0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.2ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.2ms)
+Started DELETE "/articles/393743796" for 127.0.0.1 at 2015-09-05 17:09:43 -0700
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"393743796"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 393743796]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 393743796]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/articles
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms)
+Started GET "/articles" for 127.0.0.1 at 2015-09-05 17:09:43 -0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------------------------
+Creating an Article Feature Test: test_0001_submit form data to create a new article
+------------------------------------------------------------------------------------
+Started GET "/articles/new" for 127.0.0.1 at 2015-09-05 17:09:43 -0700
+Processing by ArticlesController#new as HTML
+  Rendered articles/_form.html.erb (18.0ms)
+  Rendered articles/new.html.erb within layouts/application (20.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 822229645]]
+Started POST "/articles" for 127.0.0.1 at 2015-09-05 17:09:43 -0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "article"=>{"title"=>"Code rails", "body"=>"This is how I learned web development!"}, "commit"=>"Create Article"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Code rails"], ["body", "This is how I learned web development!"], ["created_at", "2015-09-06 00:09:43.987871"], ["updated_at", "2015-09-06 00:09:43.987871"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/articles/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:09:43 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------
+ArticleTest: test_valid
+-----------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+Editing an Article Feature Test: test_0001_Submit updates to an existing article
+--------------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Becoming a Code Fellow"], ["body", "Means striving for excellence."], ["created_at", "2015-09-06 00:09:44.011218"], ["updated_at", "2015-09-06 00:09:44.011218"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:09:44 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.1ms)
+Started GET "/articles/980190963/edit" for 127.0.0.1 at 2015-09-05 17:09:44 -0700
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  Rendered articles/_form.html.erb (3.2ms)
+  Rendered articles/edit.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.1ms)
+Started PATCH "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:09:44 -0700
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "article"=>{"title"=>"Becoming a Code Fellow", "body"=>"2nd ammendment, went well no?"}, "commit"=>"Update Article", "id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "articles" SET "body" = ?, "updated_at" = ? WHERE "articles"."id" = ?  [["body", "2nd ammendment, went well no?"], ["updated_at", "2015-09-06 00:09:44.055115"], ["id", 980190963]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/articles/980190963
+Completed 302 Found in 8ms (ActiveRecord: 0.9ms)
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:09:44 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.9ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "articles"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at", "id") VALUES ('Code rails', 'This is how I learned web development!', '2015-09-06 00:10:11', '2015-09-06 00:10:11', 822229645)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "id") VALUES ('Intro to HTTP', 'It''s all about the request-response cycle!', '2015-09-06 00:10:11', '2015-09-06 00:10:11', 393743796)[0m
+  [1m[35m (47.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+Attached ZURB styles Feature Test: test_0001_Zurb css selectors will be verified
+--------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 237ms (Views: 227.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------------------------
+Creating an Article Feature Test: test_0001_submit form data to create a new article
+------------------------------------------------------------------------------------
+Started GET "/articles/new" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by ArticlesController#new as HTML
+  Rendered articles/_form.html.erb (18.0ms)
+  Rendered articles/new.html.erb within layouts/application (19.9ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 30ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 822229645]]
+Started POST "/articles" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "article"=>{"title"=>"Code rails", "body"=>"This is how I learned web development!"}, "commit"=>"Create Article"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Code rails"], ["body", "This is how I learned web development!"], ["created_at", "2015-09-06 00:10:11.424730"], ["updated_at", "2015-09-06 00:10:11.424730"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/articles/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 0.1ms)
+  [1m[36m (153.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------------
+Editing an Article Feature Test: test_0001_Submit updates to an existing article
+--------------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Becoming a Code Fellow"], ["body", "Means striving for excellence."], ["created_at", "2015-09-06 00:10:11.598203"], ["updated_at", "2015-09-06 00:10:11.598203"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.1ms)
+Started GET "/articles/980190963/edit" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  Rendered articles/_form.html.erb (2.6ms)
+  Rendered articles/edit.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.1ms)
+Started PATCH "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "article"=>{"title"=>"Becoming a Code Fellow", "body"=>"2nd ammendment, went well no?"}, "commit"=>"Update Article", "id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "articles" SET "body" = ?, "updated_at" = ? WHERE "articles"."id" = ?  [["body", "2nd ammendment, went well no?"], ["updated_at", "2015-09-06 00:10:11.627619"], ["id", 980190963]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/articles/980190963
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------------------------------
+Visiting the Article Index Feature Test: test_0001_existing articles, show list
+-------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Becoming a Code Fellow"], ["body", "Means striving for excellence."], ["created_at", "2015-09-06 00:10:11.642635"], ["updated_at", "2015-09-06 00:10:11.642635"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/articles" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.1ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.1ms)
+  [1m[36m (1.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------------------------
+Welcome test Feature Test: test_0001_should visit the welcome index page
+------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------
+ArticleTest: test_valid
+-----------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------
+CanAccessHome Feature Test: test_0001_the test is sound
+-------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------------------------
+Deleting an Article Feature Test: test_0001_article is deleted with a click
+---------------------------------------------------------------------------
+Started GET "/articles" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.2ms)
+Started DELETE "/articles/393743796" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"393743796"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 393743796]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "articles" WHERE "articles"."id" = ?  [["id", 393743796]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/articles
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+Started GET "/articles" for 127.0.0.1 at 2015-09-05 17:10:11 -0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.2ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.9ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "articles"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at", "id") VALUES ('Code rails', 'This is how I learned web development!', '2015-09-06 00:40:18', '2015-09-06 00:40:18', 822229645)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "id") VALUES ('Intro to HTTP', 'It''s all about the request-response cycle!', '2015-09-06 00:40:18', '2015-09-06 00:40:18', 393743796)[0m
+  [1m[35m (54.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+Attached ZURB styles Feature Test: test_0001_Zurb css selectors will be verified
+--------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 215ms (Views: 205.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+CanAccessHome Feature Test: test_0001_the test is sound
+-------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------------------------
+Deleting an Article Feature Test: test_0001_article is deleted with a click
+---------------------------------------------------------------------------
+Started GET "/articles" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.2ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+Started DELETE "/articles/393743796" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"393743796"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 393743796]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 393743796]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/articles
+Completed 302 Found in 11ms (ActiveRecord: 0.5ms)
+Started GET "/articles" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (29.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+Editing an Article Feature Test: test_0001_Submit updates to an existing article
+--------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Becoming a Code Fellow"], ["body", "Means striving for excellence."], ["created_at", "2015-09-06 00:40:18.673526"], ["updated_at", "2015-09-06 00:40:18.673526"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.1ms)
+Started GET "/articles/980190963/edit" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mArticle Load (0.9ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  Rendered articles/_form.html.erb (31.2ms)
+  Rendered articles/edit.html.erb within layouts/application (35.1ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 42ms (Views: 40.1ms | ActiveRecord: 0.9ms)
+Started PATCH "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "article"=>{"title"=>"Becoming a Code Fellow", "body"=>"2nd ammendment, went well no?"}, "commit"=>"Update Article", "id"=>"980190963"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "articles" SET "body" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["body", "2nd ammendment, went well no?"], ["updated_at", "2015-09-06 00:40:18.743624"], ["id", 980190963]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/articles/980190963
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (1.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------------------
+Visiting the Article Index Feature Test: test_0001_existing articles, show list
+-------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Becoming a Code Fellow"], ["body", "Means striving for excellence."], ["created_at", "2015-09-06 00:40:18.774695"], ["updated_at", "2015-09-06 00:40:18.774695"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/articles" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.9ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------
+ArticleTest: test_valid
+-----------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------------------------
+Creating an Article Feature Test: test_0001_submit form data to create a new article
+------------------------------------------------------------------------------------
+Started GET "/articles/new" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by ArticlesController#new as HTML
+  Rendered articles/_form.html.erb (3.7ms)
+  Rendered articles/new.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 822229645]]
+Started POST "/articles" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "article"=>{"title"=>"Code rails", "body"=>"This is how I learned web development!"}, "commit"=>"Create Article"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Code rails"], ["body", "This is how I learned web development!"], ["created_at", "2015-09-06 00:40:18.855890"], ["updated_at", "2015-09-06 00:40:18.855890"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/articles/980190963
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms)
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------------------------
+Welcome test Feature Test: test_0001_should visit the welcome index page
+------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-05 17:40:18 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (12.2ms)[0m  [1mDELETE FROM "articles"[0m
+  [1m[35mFixture Insert (0.7ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at", "id") VALUES ('Code rails', 'This is how I learned web development!', '2015-09-06 19:46:44', '2015-09-06 19:46:44', 822229645)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "id") VALUES ('Intro to HTTP', 'It''s all about the request-response cycle!', '2015-09-06 19:46:44', '2015-09-06 19:46:44', 393743796)[0m
+  [1m[35m (7.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+Editing an Article Feature Test: test_0001_Submit updates to an existing article
+--------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Becoming a Code Fellow"], ["body", "Means striving for excellence."], ["created_at", "2015-09-06 19:46:44.391576"], ["updated_at", "2015-09-06 19:46:44.391576"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-06 12:46:44 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1135ms (Views: 1101.3ms | ActiveRecord: 0.3ms)
+Started GET "/articles/980190963/edit" for 127.0.0.1 at 2015-09-06 12:46:45 -0700
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  Rendered articles/_form.html.erb (77.6ms)
+  Rendered articles/edit.html.erb within layouts/application (83.5ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 98ms (Views: 97.0ms | ActiveRecord: 0.1ms)
+Started PATCH "/articles/980190963" for 127.0.0.1 at 2015-09-06 12:46:45 -0700
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "article"=>{"title"=>"Becoming a Code Fellow", "body"=>"2nd ammendment, went well no?"}, "commit"=>"Update Article", "id"=>"980190963"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "articles" SET "body" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["body", "2nd ammendment, went well no?"], ["updated_at", "2015-09-06 19:46:45.728966"], ["id", 980190963]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/articles/980190963
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-06 12:46:45 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------
+Attached ZURB styles Feature Test: test_0001_Zurb css selectors will be verified
+--------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-06 12:46:45 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------------------------
+Deleting an Article Feature Test: test_0001_article is deleted with a click
+---------------------------------------------------------------------------
+Started GET "/articles" for 127.0.0.1 at 2015-09-06 12:46:45 -0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.2ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.2ms)
+Started DELETE "/articles/393743796" for 127.0.0.1 at 2015-09-06 12:46:45 -0700
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"393743796"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 393743796]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 393743796]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/articles
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/articles" for 127.0.0.1 at 2015-09-06 12:46:45 -0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.9ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------------
+Welcome test Feature Test: test_0001_should visit the welcome index page
+------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-06 12:46:45 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------------------------
+Creating an Article Feature Test: test_0001_submit form data to create a new article
+------------------------------------------------------------------------------------
+Started GET "/articles/new" for 127.0.0.1 at 2015-09-06 12:46:45 -0700
+Processing by ArticlesController#new as HTML
+  Rendered articles/_form.html.erb (3.3ms)
+  Rendered articles/new.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 822229645]]
+Started POST "/articles" for 127.0.0.1 at 2015-09-06 12:46:45 -0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "article"=>{"title"=>"Code rails", "body"=>"This is how I learned web development!"}, "commit"=>"Create Article"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Code rails"], ["body", "This is how I learned web development!"], ["created_at", "2015-09-06 19:46:45.873260"], ["updated_at", "2015-09-06 19:46:45.873260"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/articles/980190963
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+Started GET "/articles/980190963" for 127.0.0.1 at 2015-09-06 12:46:45 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 980190963]]
+  Rendered articles/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+-------------------------------------------------------
+CanAccessHome Feature Test: test_0001_the test is sound
+-------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2015-09-06 12:46:45 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------------------------------
+Visiting the Article Index Feature Test: test_0001_existing articles, show list
+-------------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Becoming a Code Fellow"], ["body", "Means striving for excellence."], ["created_at", "2015-09-06 19:46:45.913814"], ["updated_at", "2015-09-06 19:46:45.913814"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/articles" for 127.0.0.1 at 2015-09-06 12:46:45 -0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.1ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------
+ArticleTest: test_valid
+-----------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
