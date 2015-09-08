@@ -11,3 +11,5 @@ class ActiveSupport::TestCase
   fixtures :all
   # Add more helper m ethods to be used by all tests here...
 end
+
+system 'rubocop'
