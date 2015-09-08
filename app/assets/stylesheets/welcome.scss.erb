@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url(https://fonts.googleapis.com/css?family=Inconsolata);
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro:700italic);
 
 body{
 	font-family:Inconsolata,Helvetica,Arial,sans-serif;
@@ -62,20 +63,23 @@ body{
 }
 
 .hero{
-	font-family: Inconsolata, Helvetica;
-	background:url(<%= asset_path "bannerbg.jpg" %>) no-repeat left -225px;
+	font-family: 'Inconsolata', Helvetica;
+	background: url(<%= asset_path 'mountains-horizon.jpg' %>) repeat left -225px;
 	background-size:cover;
 	box-shadow:inset 0px 0px 0 2000px
 	rgba(0,0,0,0.15);
 	height:80%;
 }
 
-.intro-text{padding-top:40%;color:rgba(255,255,255,1);text-align:center;}
+.intro-text{padding-top:40%;color:rgba(255,255,255,1);text-align: right;}
 @media only screen and (min-width: 40.063em) {.intro-text{padding-top:25%;}
 }
 @media only screen and (min-width: 64.063em) {.intro-text{padding-top:18%;}
 }
-.intro-text p{font-family:'Shadows Into Light',cursive;font-size:44px;}
+.intro-text p{
+	font-family: 'Anonymous Pro', 700 Italics;
+	font-size: 22px;
+}
 .about,.work,.contact{padding:50px 0 0 0;}
 .about img{width:250px;height:250px;border-radius:150px;-webkit-border-radius:150px;-moz-border-radius:150px;}
 .work img:hover{opacity:0.5;-webkit-transition:0.3s ease;-moz-transition:0.3s ease;-ms-transition:0.3s ease;-o-transition:0.3s ease;transition:0.3s ease;}
