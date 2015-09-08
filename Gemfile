@@ -21,6 +21,7 @@ group :development, :test do
   gem 'byebug'
   gem 'minitest-rails-capybara'
   gem "launchy"
+  gem 'rake'
 end
 
 group :development do
