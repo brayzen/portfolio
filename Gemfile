@@ -22,6 +22,7 @@ group :development, :test do
   gem 'minitest-rails-capybara'
   gem "launchy"
   gem 'rake'
+  gem 'rubocop'
 end
 
 group :development do
