@@ -14,3 +14,7 @@
  */
 
  @import url(https://fonts.googleapis.com/css?family=Inconsolata);
+ .alert-box {
+    color: #000;
+    background: rgba(0, 255, 200, .6);
+ }
