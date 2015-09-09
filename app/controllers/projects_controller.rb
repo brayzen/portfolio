@@ -13,12 +13,13 @@ class ProjectsController < ApplicationController
       flash[:notice] = "Project has been created."
       redirect_to @project
     else
-      # we'll get to this in a bit
+      flash.now[:error] = "Invalid data, please try again."
+      render :new
     end
   end
 
   def show
-    @project = Project.find_by(params[:id])
+    @project = Project.find(params[:id])
   end
 
   private
