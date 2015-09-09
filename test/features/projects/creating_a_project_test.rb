@@ -13,4 +13,3 @@ feature "As the site owner, I want to add a portfolio item so that I can show of
     page.status_code.must_equal 200
   end
 end
-
