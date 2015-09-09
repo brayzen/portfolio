@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.2.0
+ deploy:
+  provider: heroku
+  api_key:
+    secure: gpvo8ukGaQwx5gXTrWgib5kOTGfZZo6epgZDFXSJBcGzoL3ipsDNyseQ6KR86G9jJzoQJ2ignI44qxk9vvtqE3XJx32kaAbyHuCX11n8t29vSpR4YGKvLJ6M5fqD4V7PNMkjSXsiYKbpTqDV+/9No707aZI9ROYVtmhAVnryvEtwdnC9RZdKp4xEycMzb2V+zAI6M7YSAWneIIvv9AkuCpDx+0rZFGUi/Qp6GD1qf6lniT/OA7Rc6drhXJyMNdPId+VniIC6XiGcZMPonyM6j9gfqekGaw0yrg3gwY4yulV0Lm45ZLI+ZUU1hJEEwgAMeno67Oh9RCiasE+NSuCG1GavTn+DQSI8cZCCIZi8YTg/cXGMjCSTeBHDutjJKLEMgiyJ5Hesrwf+vaCGEqxXnkXxj027w2V4gKDR/Fvq+7cygxKE9NQw7qngaChnzvAVx9I41ZbkvkHaojrM49oaJiBvVzmQEE/5OoVhCeOCvX/Q6OkeRUZ5j2HGqeux4FA8akvRUBaNQoDZ8fz6pbnEN+/cG+NBdehn+NjGGgCxY4FKjmItZDTHoDZAfAJu37F/ghSWly94h1Egc7y+mJUyECbLrNVFQup0KJgskNJBRbNFoQZAp135MosuKfqnbEYqG6vfrmJe6iAZ/Fz9N4cU7IllRJnvqLJxvdEa2S7HADA=
+  app: my-radder-portfolio
+  on:
+    repo: brayzen/portfolio
