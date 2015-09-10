@@ -2,9 +2,10 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 portfolio:
-  name: My Radder Portfolio
-  technologies_used: Rails, Ruby, HTML, SCSS
+ name: How meta
+ technologies_used: Ruby, Rails, Zurb, Javascript
 
 freelance:
  name: Barnyard Cereal
  technologies_used: Ruby, Rails, Farmville API, Automilker
+
