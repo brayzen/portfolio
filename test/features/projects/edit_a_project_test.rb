@@ -1,17 +1,25 @@
 require 'test_helper'
 
-feature "Edit A Project" do
-  scenario "When existing project is clicked, edit ability is executed" do
-    visit new_project_path
-    fill_in "Name", with: "Number 1 project"
-    fill_in "Technologies used", with: "Ruby, HTML, CSS, RAILS"
-    click_on "Create Project"
-    assert_page '/projects/1/', project_path
-    click_on "Edit"
-    Fill_in "Name", with: "Bray project"
-    click_on "Submit"
-    page.text.must_include "Bray project"
-    assert page.has_css?(".notice"), "Project has been edited."
+feature "As the site owner, I want to edit a project so that I can correct typos" do
+  scenario "editing an existing project" do
+    # Given an existing project
+    visit edit_project_path(projects(:portfolio))
+
+    # When I make changes
+    fill_in 'Name', with: "My Radder Portfolio"
+    click_on "Update Project"
+
+    # Then the changes should be saved and shown
+    page.text.must_include "Project was successfully updated."
+    page.text.must_include "My Radder Portfolio"
+    page.text.wont_include "Code Fellows Portfolio"
+  end
+
+  scenario "incorrectly editing an existing project" do
+    visit edit_project_path(projects(:portfolio))
+    fill_in 'Name', with: "grr"
+    click_on "Update Project"
+    page.text.must_include "prohibited"
+    page.text.must_include "Name is too short"
   end
 end
-

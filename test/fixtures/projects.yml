@@ -1,10 +1,10 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  technologies_used: MyString
+portfolio:
+  name: My Radder Portfolio
+  technologies_used: Rails, Ruby, HTML, SCSS
 
-two:
-  name: MyString
-  technologies_used: MyString
+freelance:
+ name: Barnyard Cereal
+ technologies_used: Ruby, Rails, Farmville API, Automilker
