@@ -5,8 +5,8 @@ so that I can perform actions that require me to be logged in." do
   scenario "Sign Up" do
     # Given a registration form
     visit "/"
-    click_on "Sign Up"
-
+    click_on "Log in"
+    click_on "Sign up"
     # When I register with valid info
     fill_in "Email", with: "test@example.com"
     fill_in "Password", with: "password"

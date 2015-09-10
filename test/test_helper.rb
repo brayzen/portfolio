@@ -12,3 +12,12 @@ class ActiveSupport::TestCase
 end
 
 system 'rubocop'
+
+def log_in(email = "kit@example.com", password = "password")
+  visit root_path
+  find(".nav-bar .button-group li:last-child a").click
+  fill_in "Email", with: email
+  fill_in "Password", with: password
+  find(".actions input[type=submit]").click
+  page.text.must_include 'Signed in successfully.'
+end

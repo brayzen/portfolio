@@ -2,6 +2,7 @@ require "test_helper"
 
 feature "Deleting an Article" do
   scenario "article is deleted with a click" do
+    log_in
     visit articles_path
     begin_text = page.text
     first(:link, 'Destroy').click # incase of a confirmation

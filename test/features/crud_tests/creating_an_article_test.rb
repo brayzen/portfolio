@@ -2,6 +2,7 @@ require "test_helper"
 
 feature "Creating an Article" do
   scenario "submit form data to create a new article" do
+    log_in
     visit '/articles/new'
     fill_in "Title", with: articles(:cr).title
     fill_in "Body", with: articles(:cr).body
@@ -13,4 +14,3 @@ feature "Creating an Article" do
     page.text.must_include users(:kit).email
   end
 end
-
