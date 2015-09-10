@@ -9,5 +9,8 @@ feature "Creating an Article" do
     # current_path.must_equal articles_path(
     page.text.must_include articles(:cr).title
     page.wont_have_content "Goobye All!"
+    page.has_css? "#author"
+    page.text.must_include users(:kit).email
   end
 end
+
