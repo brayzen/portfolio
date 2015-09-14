@@ -18,4 +18,22 @@ feature "Editing an Article" do
     # page.must_include "2nd ammendment"
     page.wont_have_content "Means striving for excellence."
   end
+
+  scenario "authors can update articles" do
+    sign_in(:author)
+    visit articles_path(:cr)
+    page.must_have_link "Edit"
+  end
+
+  scenario "editors can update articles" do
+    sign_in(:editor)
+    visit articles_path(:cr)
+    page.must_have_link "Edit"
+  end
+
+  scenario "Visitor cannot edit articles" do
+    sign_in(:kit)
+    visit articles_path(:cr)
+    page.wont_have_link "Edit"
+  end
 end

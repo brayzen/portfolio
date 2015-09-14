@@ -8,7 +8,6 @@ feature "Creating an Article as an Author" do
     fill_in "Title", with: articles(:cr).title
     fill_in "Body", with: articles(:cr).body
     click_on 'Create Article'
-save_and_open_page
     page.wont_have_content "Goobye All!"
     page.has_css? "#author"
     page.text.must_include users(:author).email
@@ -47,5 +46,19 @@ save_and_open_page
     check "Published"
     click_on "Create Article"
     page.text.must_include "Status: Published"
+  end
+
+  scenario "editors can create articles" do
+    sign_in(:editor)
+    visit new_article_path
+    fill_in "Title", with: articles(:cr).title
+    fill_in "Body", with: articles(:cr).body
+    click_on "Create Article"
+    page.text.must_include "Article was successfully created."
+  end
+
+  scenario "Visitor cannot delete articles" do
+    sign_in(:kit)
+    page.wont_have_link "New Article"
   end
 end
