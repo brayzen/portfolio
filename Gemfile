@@ -12,6 +12,7 @@ gem 'foundation-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'capybara'
 gem 'devise'
+gem 'pundit'
 # gem 'poltergeist'
 
 # Use ActiveModel has_secure_password
