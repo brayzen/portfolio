@@ -4,7 +4,11 @@
 cr:
   title: Code rails
   body: This is how I learned web development!
+  author_id: 3
+  published: false
 
 http:
   title: Intro to HTTP
   body: It's all about the request-response cycle!
+  author_id: 4
+  published: true

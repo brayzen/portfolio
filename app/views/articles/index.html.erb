@@ -13,6 +13,7 @@
   </thead>
 
   <tbody>
+    logger.info(@articles.inpsect)
     <% @articles.each do |article| %>
       <tr class="row radius">
         <td class="small-9 columns"><b><%= article.title %></b></td>
@@ -31,4 +32,7 @@
 
 <br>
 
-<%= link_to 'New Article', new_article_path %>
+<% if policy(Article).create? %>
+  <%= link_to 'New Article', new_article_path %>
+<% end %>
+

@@ -2,11 +2,7 @@ require "test_helper"
 
 feature "Editing an Article" do
   scenario "Submit updates to an existing article" do
-    visit new_user_session_path
-    fill_in "Email", with: users(:kat).email
-    fill_in "Password", with: "password"
-    find(".actions input[type=submit]").click
-
+    sign_in(:author)
     visit new_article_path
     fill_in "Title", with: "Becoming a Code Fellow"
     fill_in "Body", with: "Means striving for excellence."
@@ -21,19 +17,19 @@ feature "Editing an Article" do
 
   scenario "authors can update articles" do
     sign_in(:author)
-    visit articles_path(:cr)
+    visit article_path articles(:cr)
     page.must_have_link "Edit"
   end
 
   scenario "editors can update articles" do
     sign_in(:editor)
-    visit articles_path(:cr)
+    visit article_path articles :http
     page.must_have_link "Edit"
   end
 
   scenario "Visitor cannot edit articles" do
     sign_in(:kit)
-    visit articles_path(:cr)
+    visit articles_path
     page.wont_have_link "Edit"
   end
 end
