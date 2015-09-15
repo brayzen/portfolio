@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.nickname
-      user.email = "#{user.name}-CHANGEME@twitter.example.com"
+      user.email = "#{user.name}@#{auth.provider}.com"
     end
   end
 

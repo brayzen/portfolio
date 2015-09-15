@@ -25,12 +25,11 @@ so that I can perform actions that require me to be logged in." do
                             uid: '12345',
                             info: { nickname: 'test_twitter_user'},
                             })
-    visit root_path
+    visit new_user_session_path
     Capybara.current_session.driver.request.env['devise.mapping'] = Devise.mappings[:user]
     Capybara.current_session.driver.request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:twitter]
-
     click_on "Sign in with Twitter"
-    page.must_have_content "Logged in as test_twitter_user"
+    page.must_have_content "Signed in as test_twitter_user"
   end
 
 # Courtesy of: https://gist.github.com/ivanoats/7071730
@@ -48,8 +47,7 @@ so that I can perform actions that require me to be logged in." do
     Capybara.current_session.driver.request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:github]
 
     click_on "Sign in with Github"
-    page.must_have_content "Logged in as test_github_user"
-    save_and_open_page
+    page.must_have_content "Signed in as test_github_user"
 end
 # Courtesy of: https://gist.github.com/ivanoats/7071730
 # with help from https://github.com/intridea/omniauth/wiki/Integration-Testing
