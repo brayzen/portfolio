@@ -6,6 +6,7 @@ require "minitest/rails"
 require "minitest/rails/capybara"
 require 'capybara'
 require "minitest/pride"
+# require 'minitest/reporters'
 # require "poltergeist"
 
 class ActiveSupport::TestCase
