@@ -1,0 +1,11 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+portfolio:
+ name: How meta
+ technologies_used: Ruby, Rails, Zurb, Javascript
+
+freelance:
+ name: Barnyard Cereal
+ technologies_used: Ruby, Rails, Farmville API, Automilker
+

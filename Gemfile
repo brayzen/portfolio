@@ -10,6 +10,15 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'foundation-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'capybara'
+gem 'devise'
+gem 'pundit'
+gem 'better_errors'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-twitter'
+gem 'dotenv-rails'
+# gem 'poltergeist'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -19,6 +28,8 @@ group :development, :test do
   gem 'byebug'
   gem 'minitest-rails-capybara'
   gem "launchy"
+  gem 'rake'
+  gem 'rubocop'
 end
 
 group :development do
