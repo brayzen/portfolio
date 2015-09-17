@@ -11,6 +11,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'foundation-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'capybara'
+gem 'faker'
+
 # gem 'poltergeist'
 
 # Use ActiveModel has_secure_password
