@@ -1,10 +1,11 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  technologies_used: MyString
+portfolio:
+ name: How meta
+ technologies_used: Ruby, Rails, Zurb, Javascript
 
-two:
-  name: MyString
-  technologies_used: MyString
+freelance:
+ name: Barnyard Cereal
+ technologies_used: Ruby, Rails, Farmville API, Automilker
+

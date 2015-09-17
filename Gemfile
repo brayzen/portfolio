@@ -11,6 +11,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'foundation-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'capybara'
+gem 'devise'
+gem 'pundit'
+gem 'better_errors'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-twitter'
+gem 'dotenv-rails'
 # gem 'poltergeist'
 
 # Use ActiveModel has_secure_password
