@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+
+  get 'comments/edit'
+
+  get 'comments/destroy'
+
   root 'welcome#index'
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   resources :articles

@@ -12,3 +12,21 @@ http:
   body: It's all about the request-response cycle!
   author_id: 4
   published: true
+
+<% (1..20).each do |i| %>
+article_<%= i %>:
+  title: Article <%= i %> this is an article article aritcle <%= i %>
+  body: <%='blah ' * i %>
+  author_id: <%= rand(20) %>
+  published: true
+<% end %>
+
+<% (1..20).each do |i| %>
+unpub_article_<%= i %>:
+  title: Article <%= i %> this is an article article aritcle <%= i %>
+  body: blah * i <%= i %>
+  author_id: <%= rand(20) %>
+  published: false
+<% end %>
+
+
