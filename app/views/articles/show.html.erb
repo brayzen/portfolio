@@ -19,6 +19,7 @@
   <b>By:</b>
   <%= @article.author.email %>
 </p>
+
 <hr>
 <h3>Comments</h3>
 <% @comments.each do |comment| %>
@@ -27,10 +28,11 @@
   <%= comment.post %>
   by: <%= comment.user_id %>
 </p>
+<% end %>
 
 <hr>
 <h2>Create Comment</h2>
-<%= form_for([@article, @comment]) do |f|
+<%= form_for article_comments(@comment) do |f| %>
   <div class="field">
     <%= f.label :post %><br />
     <%= f.text_field :post %>

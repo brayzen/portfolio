@@ -1,14 +1,14 @@
 class CommentsController < ApplicationController
   def new
-    @article = Article.find(params(:author_id))
+    @article = Article.find(:article_id)
     @comment = @article.comments.build
   end
 
   def create
-    @article = Article.find(params(:author_id))
-    @comment = @article.comments.build
+    @article = Article.find(:article_id))
+    @comment = @article.comments.build(comment_params)
     if @comment.save
-      current_user.articles << @comment
+      @comment
       format.html { redirect_to @article, notice: 'Comment was successfully created.' }
       format.json { render :show, status: :created, location: @comment }
     else

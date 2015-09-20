@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 20150920032845) do
   create_table "comments", force: :cascade do |t|
     t.text     "post"
     t.boolean  "verified"
-    t.integer  "author_id_id"
-    t.integer  "user_id_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "article_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["author_id_id"], name: "index_comments_on_author_id_id"
-  add_index "comments", ["user_id_id"], name: "index_comments_on_user_id_id"
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"

@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-  get 'comments/new'
-
-  get 'comments/edit'
-
-  get 'comments/destroy'
-
   root 'welcome#index'
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   resources :projects
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -5,3 +5,53 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create(
+  email: 'brayzen@github.com',
+  password: 'password',
+  role: 'editor',
+  )
+
+
+30.times do
+  User.create(
+    email: Faker::Internet.email,
+    password: 'password',
+    role: 'author',
+    )
+end
+
+30.times do
+  User.create(
+    email: Faker::Internet.email,
+    password: 'password',
+    role: 'visitor',
+    )
+end
+
+30.times do
+  Article.create(
+    title: Faker::Lorem.sentence(rand(8)),
+    body: Faker::Lorem.paragraph(rand(3)),
+    author_id: rand(31..60),
+    published: true,
+    )
+end
+
+20.times do
+  Article.create(
+    title: Faker::Lorem.sentence(rand(8)),
+    body: Faker::Lorem.paragraph(rand(3)),
+    author_id: rand(31..60),
+    published: nil,
+    )
+end
+
+
+100.times do
+  Comment.create(
+    post: Faker::Lorem.sentence(rand(1..10)),
+    verified: true,
+    article_id: rand(0..30),
+    user_id: rand(0..61),
+    )
+end
