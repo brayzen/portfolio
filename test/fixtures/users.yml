@@ -19,3 +19,10 @@ editor:
   encrypted_password: <%= User.new.send(:password_digest, "password") %>
   role: editor
   id: 4
+
+visitor:
+  email: visitor@example.com
+  encrypted_password: <%= User.new.send(:password_digest, "password") %>
+  role: visitor
+  id: 5
+
