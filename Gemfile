@@ -18,6 +18,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'dotenv-rails'
+gem 'faker'
 # gem 'poltergeist'
 
 # Use ActiveModel has_secure_password
