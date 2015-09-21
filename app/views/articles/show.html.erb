@@ -22,29 +22,20 @@
 
 <hr>
 <h3>Comments</h3>
+<% counter = 1 %>
 <% @comments.each do |comment| %>
 <p>
-  <strong>Title:</strong>
+  <strong>Comment_<%= counter %>: </strong>
   <%= comment.post %>
   by: <%= comment.user_id %>
+  <% counter += 1 %>
+  <%= link_to 'Edit Comment', edit_article_comment_path(comment) %>
+  <%= link_to 'Delete', comment, method: :delete, data: {confirm: 'Are you sure?'} %>
 </p>
 <% end %>
 
+<%= link_to 'Create comment', new_article_comment_path([@article, @comment]) %>
 <hr>
-<h2>Create Comment</h2>
-<%= form_for article_comments(@comment) do |f| %>
-  <div class="field">
-    <%= f.label :post %><br />
-    <%= f.text_field :post %>
-  </div>
-  <div class="field">
-    <%= f.label :verified %><br />
-    <%= f.boolean :verified %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>

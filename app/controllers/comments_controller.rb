@@ -1,16 +1,15 @@
 class CommentsController < ApplicationController
   def new
-    @article = Article.find(:article_id)
-    @comment = @article.comments.build
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.new
   end
 
   def create
-    @article = Article.find(:article_id))
+    @article = Article.find(params[:article_id])
+    @comments = @article.comments
     @comment = @article.comments.build(comment_params)
     if @comment.save
-      @comment
-      format.html { redirect_to @article, notice: 'Comment was successfully created.' }
-      format.json { render :show, status: :created, location: @comment }
+      render "articles/show"
     else
       format.html { render :new }
       format.json { render json: @comment.errors, status: :unprocessable_entity }
