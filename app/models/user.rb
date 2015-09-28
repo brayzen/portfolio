@@ -47,6 +47,7 @@ class User < ActiveRecord::Base
     else
       super
     end
-  end end
+  end
+end
 
 

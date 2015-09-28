@@ -29,7 +29,7 @@
   <%= comment.post %>
   by: <%= comment.user_id %>
   <% counter += 1 %>
-  <%= link_to 'Edit Comment', edit_article_comment_path(comment) %>
+  <%= link_to 'Edit Comment', controller: 'comments', action: 'edit' %>
   <%= link_to 'Delete', comment, method: :delete, data: {confirm: 'Are you sure?'} %>
 </p>
 <% end %>
