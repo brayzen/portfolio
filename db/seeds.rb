@@ -9,6 +9,8 @@ User.create(
   email: 'brayzen@github.com',
   password: 'password',
   role: 'editor',
+  name: Faker::Name.name,
+
   )
 
 
@@ -17,6 +19,8 @@ User.create(
     email: Faker::Internet.email,
     password: 'password',
     role: 'author',
+    name: Faker::Name.name,
+
     )
 end
 
@@ -25,6 +29,7 @@ end
     email: Faker::Internet.email,
     password: 'password',
     role: 'visitor',
+    name: Faker::Name.name,
     )
 end
 
@@ -51,7 +56,7 @@ end
   Comment.create(
     post: Faker::Lorem.sentence(rand(1..10)),
     verified: true,
-    article_id: rand(0..30),
-    user_id: rand(0..61),
+    article: Article.all.sample,
+    user: User.all.sample,
     )
 end

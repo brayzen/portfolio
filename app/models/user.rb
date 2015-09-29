@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :articles, foreign_key: "author_id"
-  has_many :comments
+  has_many :comments, through: :articles
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
