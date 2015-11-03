@@ -10,10 +10,10 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = Project.create(project_params)
     if @project.save
       flash[:notice] = "Project has been created."
-      redirect_to @project
+      redirect_to projects_path
     else
       flash.now[:error] = "Invalid data, please try again."
       render :new

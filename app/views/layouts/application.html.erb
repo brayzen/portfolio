@@ -18,9 +18,11 @@
     </div>
   <% end %>
     <%= render 'layouts/header' %>
-    <div class="md-12 columns">
-      <%= yield %>
-    </div>
+      <div id="body">
+        <div class="md-12 columns">
+          <%= yield %>
+        </div>
+      </div>
     <%= render 'layouts/footer' %>
   </body>
 </html>

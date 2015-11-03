@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#index'
+  get 'resume' => 'resume#index'
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   resources :articles do
     resources :comments
