@@ -4,9 +4,16 @@
   <div class="small-12 medium-8 large-6 columns">
     <div class="nav-bar">
       <ul class="button-group">
-      <li><a href="<%= articles_path %>" class="button">Blog</a></li>
-      <li><a href="#" class="button">Work</a></li>
-      <li><a href="#" class="button">Contact</a></li>
+      <li><a href="<%= articles_path %>" class="button">Articles</a></li>
+      <li><a href="<%= projects_path %>" class="button">Projects</a></li>
+      <li><a href="resume" class="button">Resume</a></li>
+      <li>
+        <% if current_user.present? %>
+          <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Log in', user_session_path %>
+        <% end %>
+      </li>
       </ul>
     </div>
   </div>

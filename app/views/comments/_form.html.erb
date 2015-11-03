@@ -1,0 +1,14 @@
+<h2>Create Comment</h2>
+<%= form_for @comment do |f| %>
+  <div class="field">
+    <%= f.label :post %><br />
+    <%= f.text_field :post %>
+  </div>
+  <div class="field">
+    <%= f.label :verified %><br />
+    <%= f.boolean :verified %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

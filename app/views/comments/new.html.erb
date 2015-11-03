@@ -1,0 +1,14 @@
+<h1>CREATE your COMMENT </h1>
+<%= form_for [@article, @comment] do |f| %>
+  <div class="field">
+    <%= f.label :post %><br />
+    <%= f.text_field :post %>
+  </div>
+  <div class="field">
+    <%= f.label :verified %><br />
+    <%= f.check_box :verified %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

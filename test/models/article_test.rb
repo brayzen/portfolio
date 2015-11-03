@@ -1,11 +1,11 @@
-require "test_helper"
+# require "test_helper"
 
-class ArticleTest < ActiveSupport::TestCase
-  def article
-    @article ||= Article.new
-  end
+# class ArticleTest < ActiveSupport::TestCase
+#   def article
+#     @article ||= Article.new
+#   end
 
-  def test_valid
-    assert article.valid?
-  end
-end
+#   def test_valid
+#     assert article.valid?
+#   end
+# end
