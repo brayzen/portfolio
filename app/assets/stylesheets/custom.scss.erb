@@ -1,25 +1,42 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700|Nothing+You+Could+Do);
 
 
 .alert-box {
     color: #000;
-    background: rgba(0, 255, 220, .6);
+    background: rgba(0,255,220,.6);
  }
 
 h1, h2, h3, h4, h5, h6 {
   color: #222222;
-  font-family: "Inconsolata", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Inconsolata", "Helvetica Neue", Helvetica, sans-serif;
 }
 
-body,{
+body {
 	font-family: 'Inconsolata',Helvetica,Arial,sans-serif;
 	font-weight: 400;
 	background-color:rgba(0,0,0,0.02);
+	// max-width: 960px;
+	margin: auto;
 }
 
+.body {
+	font-family: 'Inconsolata',Helvetica,Arial,sans-serif;
+	font-weight: 400;
+	// background-color:rgba(0,0,0,0.02);
+	max-width: 960px;
+	margin: auto;
+}
+
+.hero{
+	font-family: 'Inconsolata', Helvetica;
+	background: url(<%= asset_path 'mountains-horizon.jpg' %>) repeat left -225px;
+	background-size: 100%;
+	box-shadow:inset 0px 0px 0 2000px rgba(0,0,0,0.15);
+	height:80%;
+}
 
 .project {
 	font-family: 'Inconsolata';
@@ -29,13 +46,14 @@ body,{
 	font-family: 'Inconsolata',Helvetica,Arial,sans-serif;
 	display: inline;
 	padding: .4em .6em;
-	margin: 1em;
+	margin: 1.5em 1em;
 	background-color: #31C1F1;
 	border: 1px rgba(0,0,0,.5) solid;
 	border-radius: 3px;
 }
 .button-group li{
 	padding-top:3%;
+	margin-top: 20px;
 }
 .button-group a{
 	color:rgba(0,0,0,1);
@@ -83,25 +101,24 @@ body,{
 	}
 }
 
-.hero{
-	font-family: 'Inconsolata', Helvetica;
-	background: url(<%= asset_path 'mountains-horizon.jpg' %>) repeat left -225px;
-	background-size:cover;
-	box-shadow:inset 0px 0px 0 2000px
-	rgba(0,0,0,0.15);
-	height:80%;
-}
 
-.intro-text{padding-top:40%;color:rgba(255,255,255,1);text-align: right;}
+.intro-text{
+	padding-top:40%;
+	color:rgba(255,255,255,1);
+	text-align: right;
+}
 @media only screen and (min-width: 40.063em) {.intro-text{padding-top:25%;}
 }
 @media only screen and (min-width: 64.063em) {.intro-text{padding-top:18%;}
 }
 .intro-text p{
-	font-family: 'Anonymous Pro', 700 Italics;
+	font-family: 'Nothing You Could Do', cursive;
 	font-size: 22px;
 }
-.about,.work,.contact{padding:50px 0 0 0;}
+.about,.work,.contact{
+	padding:2em 0 0 0;
+	margin: 1em;
+}
 .about img{width:250px;height:250px;border-radius:150px;-webkit-border-radius:150px;-moz-border-radius:150px;}
 .work img:hover{opacity:0.5;-webkit-transition:0.3s ease;-moz-transition:0.3s ease;-ms-transition:0.3s ease;-o-transition:0.3s ease;transition:0.3s ease;}
 .work li{height:140px;overflow:hidden;}
@@ -114,7 +131,11 @@ hr{
 	background-image:-o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));
 	opacity:0.8;
 }
-footer{padding:80px 0 10px 0;}
+
+footer{
+	padding:80px 0 10px 0;
+}
+
 footer a:hover{
 	color:rgba(0,0,0,0.4);
 	background-color:transparent;
@@ -178,8 +199,11 @@ p {
 .article-title {
 	font-family: Inconsolata;
 	font-weight: 500;
+	font-size: 2em;
 }
 
 .work ul li img{
 	border: 1px rgba(0,0,0,.5) solid;
 }
+
+
