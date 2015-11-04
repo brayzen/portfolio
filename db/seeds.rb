@@ -9,8 +9,7 @@ User.create(
   email: 'brayzen@github.com',
   password: 'password',
   role: 'editor',
-  name: Faker::Name.name,
-
+  name: 'Brian Ray',
   )
 
 
@@ -20,7 +19,6 @@ User.create(
     password: 'password',
     role: 'author',
     name: Faker::Name.name,
-
     )
 end
 
@@ -33,10 +31,10 @@ end
     )
 end
 
-30.times do
+10.times do
   Article.create(
     title: Faker::Lorem.sentence(rand(8)),
-    body: Faker::Lorem.paragraph(rand(3)),
+    body: Faker::Lorem.paragraph(rand(10)),
     author_id: rand(31..60),
     published: true,
     )

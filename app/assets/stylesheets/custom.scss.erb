@@ -1,14 +1,18 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro:700italic);
-@import url(https://fonts.googleapis.com/css?family=Inconsolata);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
 
 .alert-box {
     color: #000;
     background: rgba(0, 255, 220, .6);
  }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #222222;
+  font-family: "Inconsolata", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
 
 body,{
 	font-family: 'Inconsolata',Helvetica,Arial,sans-serif;
@@ -23,6 +27,12 @@ body,{
 
 .button{
 	font-family: 'Inconsolata',Helvetica,Arial,sans-serif;
+	display: inline;
+	padding: .4em .6em;
+	margin: 1em;
+	background-color: #31C1F1;
+	border: 1px rgba(0,0,0,.5) solid;
+	border-radius: 3px;
 }
 .button-group li{
 	padding-top:3%;
@@ -121,8 +131,15 @@ h3.project {
 
 }
 
+a:hover{
+	color:rgba(0,0,0,0.4);
+	background-color:transparent;
+}
 
-
+.project {
+	list-style-type: none;
+	display: inline;
+}
 .crud {
 	display: inline;
 	padding: .4em .6em;
@@ -134,6 +151,35 @@ h3.project {
 	}
 }
 
+p {
+	font-family: "Inconsolata", Helvetica;
+}
+
+.inlineTitle {
+	font-size: 3em;
+	font-weight: 400;
+	line-height: 1em;
+}
+
+.inlineBody {
+	font-size: 2em;
+	font-weight: none;
+}
+
+.log-button {
+	// background-color: #31C1F1;
+	color: #f44;
+	font-family: Inconsolata;
+	padding: 5px 10px;
+	border: 1px rgba(0,0,0,.5) solid;
+	border-radius: 3px;
+}
+
+.article-title {
+	font-family: Inconsolata;
+	font-weight: 500;
+}
+
 .work ul li img{
-	border: 1px rgba(0, 0, 0, .5) solid;
+	border: 1px rgba(0,0,0,.5) solid;
 }

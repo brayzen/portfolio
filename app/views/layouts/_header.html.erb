@@ -9,9 +9,9 @@
       <li><a href="resume" class="button">Resume</a></li>
       <li>
         <% if current_user.present? %>
-          <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+          <%= link_to 'Log out', destroy_user_session_path, method: :delete, :class => "log-button" %>
         <% else %>
-          <%= link_to 'Log in', user_session_path %>
+          <%= link_to 'Log in', user_session_path, :class => "log-button" %>
         <% end %>
       </li>
       </ul>

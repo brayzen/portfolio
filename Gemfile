@@ -19,6 +19,7 @@ gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'dotenv-rails'
 gem 'faker'
+gem 'paperclip', "~> 4.3"
 
 # gem 'poltergeist'
 

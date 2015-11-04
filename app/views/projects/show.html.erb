@@ -1,2 +1,15 @@
-<h2><%= @project.name %></h2>
-<p>Technologies used: <%= @project.technologies_used %></p>
+<div class="body">
+  <h2 class="inlineTitle"><%= @project.name %></h2>
+  <div class="image_medium">
+    <%= image_tag @project.image.url(:medium) %>
+  </div>
+<!--   <div class="image_thumb">
+    <%= image_tag @project.image.url(:thumb) %>
+  </div> -->
+  <div>
+    <p>Technologies used: <%= @project.technologies_used %></p>
+  </div>
+  <div>
+    <p>Description: <%= @project.description %></p>
+  </div>
+</div>
