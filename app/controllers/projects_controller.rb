@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -35,8 +36,13 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project.destroy
-    redirect_to projects_path
+    if @project.destroy
+      flash[:notice] = "Project has been created."
+      redirect_to projects_path
+    else
+      flash.now[:error] = "Invalid data, please try again."
+      render :new
+    end
   end
 
   private
