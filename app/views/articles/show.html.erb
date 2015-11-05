@@ -1,11 +1,13 @@
 <div class="body">
   <p id="notice"><%= notice %></p>
 
-  <% if current_user.editor? %>
-    <p id="status">
-      <b>Status:</b>
-      <%= @article.published? ? "Published" : "Unpublished" %>
-    </p>
+  <%if current_user && current_user.editor? %>
+    <div class="status">
+      <p>
+        <strong>Status:</strong>
+        <%= @article.published? ? "Published" : "Unpublished" %>
+      </p>
+    <div>
   <% end %>
   <div>
     <p class="inlineTitle">
@@ -26,13 +28,13 @@
   <h3>Comments</h3>
   <% counter = 1 %>
   <% @comments.each do |comment| %>
-  <p>
-    <strong>Comment_<%= counter %>: </strong>
-    <%= comment.post %>
-    by:
-    <%= comment.user.name %>
-    <% counter += 1 %>
-  </p>
+    <p>
+      <strong>Comment_<%= counter %>: </strong>
+      <%= comment.post %>
+      by:
+      <%= comment.user.name %>
+      <% counter += 1 %>
+    </p>
   <% end %>
 
   <!-- This is the Create comment section  -->
@@ -42,7 +44,7 @@
       <%= f.label :post %><br />
       <%= f.text_field :post %>
     </div>
-    <% if current_user.editor? %>
+    <% if current_user && current_user.editor? %>
       <div class="field">
         <%= f.label :verified %><br />
         <%= f.check_box :verified %>
