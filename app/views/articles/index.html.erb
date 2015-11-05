@@ -1,38 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="body">
+  <p id="notice"><%= notice %></p>
 
-<h1>Listing Articles</h1>
+  <h2>Articles</h1>
 
-<table>
-  <thead>
-    <tr>
-      <!-- <th>Title</th>
-      <th>Body</th> -->
-      <th><em><b>Title</b></em> | Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    logger.info(@articles.inpsect)
-    <% @articles.each do |article| %>
-      <tr class="row radius">
-        <td class="small-9 columns"><b><%= article.title %></b></td>
-        <td class="small-9 columns"><%= article.body %></td>
-        <td class="small-1 columns crud"><%= link_to 'Show', article, class: "button radius" %></td>
-        <% if policy(article).update? %>
-          <td class="crud"><%= link_to 'Edit', edit_article_path(article), class: "button radius" %></td>
-        <% end %>
-        <% if policy(article).destroy? %>
-          <td class="small-1 columns crud"><%= link_to 'Destroy', article, class: "button radius", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<% if policy(Article).create? %>
-  <%= link_to 'New Article', new_article_path %>
-<% end %>
+  <div class="container">
+    <div>
+      <% @articles.each do |article| %>
+        <div class="row">
+          <div class="small-9 columns article-title"><strong><%= article.title %></strong></div>
+        </div>
+        <div class="row">
+          <div class="small-9 columns"><%= article.body %></div>
+          <div class="small-1 columns"><%= link_to 'Show', article, class: "button radius" %></div>
+          <% if policy(article).update? %>
+            <div class="small-1 columns"><%= link_to 'Edit', edit_article_path(article), class: "button radius" %></div>
+          <% end %>
+          <% if policy(article).destroy? %>
+            <div class="small-1 columns"><%= link_to 'Destroy', article, class: "button radius", method: :delete, data: { confirm: 'Are you sure?' } %></div>
+          <% end %>
+        </div>
+        <br>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <% if policy(Article).create? %>
+    <%= link_to 'New Article', new_article_path, class: 'button' %>
+  <% end %>
+  <br>
+  <br>
+</div>
 

@@ -1,16 +1,21 @@
-<h2>My Portfolio</h2>
-<ul>
-<% @projects.each do |project| %>
-  <li class="project" id="<%= dom_id(project) %>">
-    <h3><%= project.name %></h3>
-    <p><%= project.technologies_used %></p>
-    <div class="nav">
-      <div class="crud"><%= link_to 'Show', project %></div> |
-      <div class="crud"><%= link_to 'Edit', edit_project_path(project) %></div> |
-      <div class="crud"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-    </div>
-  </li>
-<% end %>
-</ul>
-<br />
-<%= link_to 'New Project', new_project_path %>
+<div class="body">
+  <h2>My Portfolio</h2>
+  <ul>
+  <% @projects.each do |project| %>
+    <li class="project" id="<%= dom_id(project) %>">
+      <h3><%= project.name %></h3>
+      <p><%= project.technologies_used %></p>
+      <p><%= project.description %></p>
+      <div class="nav">
+        <div class="crud"><%= link_to 'Show', project %></div> |
+        <div class="crud"><%= link_to 'Edit', edit_project_path(project) %></div> |
+        <div class="crud"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      </div>
+    </li>
+  <% end %>
+  </ul>
+  <br>
+  <%= link_to 'New Project', new_project_path, :class => 'button' %>
+  <br>
+  <br>
+</div>

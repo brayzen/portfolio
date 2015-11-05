@@ -9,8 +9,7 @@ User.create(
   email: 'brayzen@github.com',
   password: 'password',
   role: 'editor',
-  name: Faker::Name.name,
-
+  name: 'Brian Ray',
   )
 
 
@@ -20,7 +19,6 @@ User.create(
     password: 'password',
     role: 'author',
     name: Faker::Name.name,
-
     )
 end
 
