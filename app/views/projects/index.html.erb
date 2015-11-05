@@ -3,6 +3,7 @@
   <ul>
   <% @projects.each do |project| %>
     <li class="project" id="<%= dom_id(project) %>">
+      <br>
       <h3><%= project.name %></h3>
       <p><%= project.technologies_used %></p>
       <p><%= project.description %></p>
@@ -12,6 +13,7 @@
         <div class="crud"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></div>
       </div>
     </li>
+    <br>
   <% end %>
   </ul>
   <br>
