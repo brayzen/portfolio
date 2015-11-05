@@ -31,10 +31,10 @@ end
     )
 end
 
-10.times do
+30.times do
   Article.create(
     title: Faker::Lorem.sentence(rand(8)),
-    body: Faker::Lorem.paragraph(rand(10)),
+    body: Faker::Lorem.paragraph(rand(3)),
     author_id: rand(31..60),
     published: true,
     )
