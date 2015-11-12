@@ -4,9 +4,15 @@
   <% @projects.each do |project| %>
     <li class="project" id="<%= dom_id(project) %>">
       <br>
+      <div class="image_thumb">
+        <%= image_tag project.image.url(:thumb) %>
+      </div>
+      <br>
       <h3><%= project.name %></h3>
-      <p><%= project.technologies_used %></p>
-      <p><%= project.description %></p>
+      <div class="project-body">
+        <p><%= project.technologies_used %></p>
+        <p><%= project.description %></p>
+      </div>
       <div class="nav">
         <div class="crud"><%= link_to 'Show', project %></div> |
         <div class="crud"><%= link_to 'Edit', edit_project_path(project) %></div> |
