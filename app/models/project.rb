@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
                     :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 
   def s3_credentials
-    {:bucket => "brayzen1", :access_key_id => "AKIAJZ2RRVTZIUPFDCSQ", :secret_access_key => "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"}
+    {:bucket => ENV["S3_BUCKET"], :access_key_id => ENV["S3_ACCESS_KEY"], :secret_access_key => ENV["S3_SECRET"]}
   end
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
