@@ -8,10 +8,11 @@
         <%= image_tag project.image.url(:thumb) %>
       </div>
       <br>
-      <h3><%= project.name %></h3>
+      <h3><strong><%= project.name %></strong></h3>
       <div class="project-body">
-        <p><%= project.technologies_used %></p>
-        <p><%= project.description %></p>
+        <p><strong><%= project.technologies_used %></strong></p>
+        <br>
+        <p><strong><%= project.description %></strong></p>
       </div>
       <div class="nav">
         <div class="crud"><%= link_to 'Show', project %></div> |
@@ -19,6 +20,8 @@
         <div class="crud"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></div>
       </div>
     </li>
+    <br>
+    <hr>
     <br>
   <% end %>
   </ul>
