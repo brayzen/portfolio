@@ -15,7 +15,7 @@ User.create(
 
 30.times do
   User.create(
-    email: Faker::Internet.email,
+    email: 'john.doe@example.com',
     password: 'password',
     role: 'author',
     name: Faker::Name.name,
@@ -24,7 +24,7 @@ end
 
 30.times do
   User.create(
-    email: Faker::Internet.email,
+    email: 'jane.visitor@example.com',
     password: 'password',
     role: 'visitor',
     name: Faker::Name.name,
