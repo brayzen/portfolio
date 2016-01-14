@@ -26,8 +26,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #   super(scope)
   # end
   def all
-    puts "under user, it tried"
-    puts Rails.application.secrets.
+    puts "under user, made it here"
     user = User.from_omniauth(request.env["omniauth.auth"])
     if user.persisted?
       flash.notice = "Signed in as #{user.email}"
