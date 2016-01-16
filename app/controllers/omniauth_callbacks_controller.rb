@@ -1,7 +1,6 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def all
-    puts "NOT under user, it made it to the controller"
-    puts request.env["omniauth.auth"] + '********************'
+    # logger.info request.env["omniauth.auth"]
     user = User.from_omniauth(request.env["omniauth.auth"])
     if user.persisted?
       flash.notice = "Signed in as #{user.email}"
