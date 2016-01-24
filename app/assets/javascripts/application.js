@@ -19,6 +19,7 @@
 //$(function(){ $(document).foundation(); });
 //<link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
 
-$(document).foundation();
+
+$(document).ready(function(){.foundation();});
 
 
