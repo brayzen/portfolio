@@ -30,12 +30,44 @@ body {
 	margin: auto;
 }
 
-.hero{
-	font-family: 'Inconsolata', Helvetica;
-	background: url(<%= asset_path 'mountains-horizon.jpg' %>) repeat left -225px;
-	background-size: 100%;
-	box-shadow:inset 0px 0px 0 2000px rgba(0,0,0,0.15);
-	height:80%;
+.full-width{
+	width: 100%;
+	max-height: 30em;
+	margin: 1em auto;
+	&.hero{
+		min-width: 30em;
+		font-family: 'Inconsolata', Helvetica;
+		background: url(<%= asset_path 'mountains-horizon.jpg' %>) repeat left -100px;
+		background-size: 100%;
+		box-shadow:inset 0px 0px 0 2000px rgba(0,0,0,0.15);
+		height:80%;
+		@media (max-width: 550px){
+			background: url(<%= asset_path 'mountains-horizon.jpg' %>) no-repeat left -10px;
+			min-width: 400px;
+			vertical-align: top;
+		}
+		@media (min-width: 651px) and (max-width: 810){
+			height: 25em;
+			background: url(<%= asset_path 'mountains-horizon.jpg' %>) no-repeat -100px -100px;
+		}
+		#intro-text {
+			color: #FFF;
+			@media(max-width: 650px){
+				color: black;
+				font-size: 2em;
+			}
+			@media(min-width: 651px) and (max-width: 840){
+				font-size: 2em;
+			}
+			@media(min-width: 841px){
+				font-size: 3em;
+			}
+			p {
+				line-height: 120%;
+			}
+		}
+
+	}
 }
 
 .project {
@@ -102,18 +134,18 @@ body {
 }
 
 
-.intro-text{
+#intro-text{
 	padding-top:40%;
 	color:rgba(255,255,255,1);
 	text-align: right;
 }
-@media only screen and (min-width: 40.063em) {.intro-text{padding-top:25%;}
+@media only screen and (min-width: 40.063em) {#intro-text{padding-top:25%;}
 }
-@media only screen and (min-width: 64.063em) {.intro-text{padding-top:18%;}
+@media only screen and (min-width: 64.063em) {#intro-text{padding-top:18%;}
 }
-.intro-text p{
+#intro-text p{
 	font-family: 'Nothing You Could Do', cursive;
-	font-size: 22px;
+	font-size: 1em;
 }
 .about,.work,.contact{
 	padding:2em 0 0 0;
