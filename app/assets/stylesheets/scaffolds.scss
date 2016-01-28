@@ -21,18 +21,18 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #000;
+// a {
+//   color: $font;
 
-  &:visited {
-    color: #666;
-  }
+//   &:visited {
+//     color: #666;
+//   }
 
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
+//   &:hover {
+//     color: #fff;
+//     background-color: #000;
+//   }
+// }
 
 div {
   &.field, &.actions {
@@ -52,7 +52,7 @@ div {
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 2px solid #F56;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;

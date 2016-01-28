@@ -10,8 +10,8 @@
  *
  *= require_self
  *= require foundation_and_overrides
- *= require scaffolds.scss
- *= require custom.scss.erb
+ *= require scaffolds
+ *= require custom
 
  */
 
