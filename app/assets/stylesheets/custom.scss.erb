@@ -65,18 +65,18 @@ body {
 	&.hero{
 		min-width: 30em;
 		font-family: 'Inconsolata', Helvetica;
-		background: url(<%= asset_path 'mountains-horizon.jpg' %>) repeat left -100px;
+		background: url(<%= asset_path 'mountains-horizon.jpg' %>) repeat left -100px fixed;
 		background-size: 100%;
 		box-shadow:inset 0px 0px 0 2000px rgba(0,0,0,0.15);
 		height:80%;
 		@media (max-width: 550px){
-			background: url(<%= asset_path 'mountains-horizon.jpg' %>) no-repeat left center -10px;
+			background: url(<%= asset_path 'mountains-horizon.jpg' %>) no-repeat left center -10px fixed;
 			min-width: 400px;
 			vertical-align: top;
 		}
 		@media (min-width: 651px) and (max-width: 810){
 			height: 25em;
-			background: url(<%= asset_path 'mountains-horizon.jpg' %>) no-repeat left center -10px;
+			background: url(<%= asset_path 'mountains-horizon.jpg' %>) no-repeat left center -10px fixed;
 		}
 		#intro-text {
 			color: #FFF;
@@ -228,18 +228,34 @@ body {
 	}
 }
 
-.about img {
-	-webkit-animation-name: rotation;
-	animation-name: rotation;
-	animation-duration: 3s;
-	-webkit-animation-duration: 3s;
-	animation-iteration-count: 1;
-	-webkit-animation-iteration-count: 1;
-	width:250px;
-	height:250px;
-	border-radius:150px;
-	-webkit-border-radius:150px;
-	-moz-border-radius:150px;
+.about {
+	img {
+		width:250px;
+		height:250px;
+		border-radius:150px;
+		-webkit-border-radius:150px;
+		-moz-border-radius:150px;
+		&.rotate {
+			-webkit-animation-name: rotation;
+			animation-name: rotation;
+			animation-duration: 3s;
+			-webkit-animation-duration: 3s;
+			animation-iteration-count: 1;
+			-webkit-animation-iteration-count: 1;
+		}
+		&:hover {
+			-webkit-transform: scale(1.4);
+			-ms-transform: scale(1.4);
+			transform: scale(1.4);
+		}
+	}
+
+	#speakerbox {
+		text-align: center;
+		font-size: 1.5em;
+		color: $accent1;
+		margin-top: 3em;
+	}
 }
 
 .work img:hover{opacity:0.5;-webkit-transition:0.3s ease;-moz-transition:0.3s ease;-ms-transition:0.3s ease;-o-transition:0.3s ease;transition:0.3s ease;}
