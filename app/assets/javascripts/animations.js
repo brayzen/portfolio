@@ -10,8 +10,7 @@ $(function(){
     } else if ($scrollTop < 229) {
       $mypic.removeClass('rotate');
     }
-
-  })
+  });
 
   //MOUSEOVER animations
   $mypic.mouseover(function(){
@@ -24,5 +23,5 @@ $(function(){
     } else {
       $speakerbox.text(answers[count - 1]).fadeOut(3000).css('display', 'block');
     }
-  })
+  });
 })
