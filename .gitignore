@@ -1,5 +1,10 @@
 *.rbc
+.gitignore
 capybara-*.html
+.DS_store
+app/.DS_Store
+app/assets/images/.DS_Store
+log
 .rspec
 /log
 /tmp
